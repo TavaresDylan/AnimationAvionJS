@@ -122,34 +122,34 @@ Ce qui donnera ceci :
 
 Tout d'abord nous allons réinitialisé notre style avec ce bout de code CSS:
 ```CSS
-*{margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{margin: 0; // Initialise les marges extérieures à 0
+    padding: 0; // Initialise les marges intérieures à 0
+    box-sizing: border-box; // Inclusion des bordures 
 }
 ```
 Ensuite nous allons définir le style du texte dans le header et le footer:
 ```CSS
 header, footer{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Roboto', Arial, sans-serif;
+    height: 100vh; // Vh signifiant viewport height / unitée responsive
+    display: flex; // Utilisation du module flexbox
+    justify-content: center; // Alignement horizontal flex au centre
+    align-items: center; // Alignement vertical flex au centre
+    font-family: 'Roboto', Arial, sans-serif; // Définition de la police de caratère Roboto: police perso importée
 }
 ```
 La taille du text dans le h1 du header:
 ```CSS
 header h1{
-    font-size: 60px;
+    font-size: 60px; // Taille de Police
 }
 ```
 le fond de la section où ce trouvera l'image ainsi que la position de départ de la dite image
 ```CSS
 .animation{
-    height: 100vh;
-    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    height: 100vh; // Vh signifiant viewport height / unitée responsive
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%); // Dégradé d'arrière plan
     position: relative;
-    overflow: hidden;
+    overflow: hidden; // Cache le contenu s'il est ammener à dépasser de ça boite
 }
 ```
 Pour finir nous définirons la position de l'image
@@ -171,7 +171,7 @@ On commence par définir une constante qui se nommera flightPath (littéralement
 ```JS
 const flightPath = {
     curviness: 1.25,
-    autoRotate: true,
+    autoRotate: true, // Auto-rotation : activé
     values: [
         { x: 100, y: -20 },
         { x: 300, y: 10 },
@@ -181,7 +181,7 @@ const flightPath = {
         { x: 600, y: 100 },
         { x: 800, y: 0 },
         { x: window.innerWidth, y: -250 }
-    ]
+    ] // Valeur du chemin de vol
 }
 ```
 On déclare une nouvelle constante qui se nommera tween et qui appelera un nouvel objet TimelineLite() depuis le CDN.
@@ -203,7 +203,9 @@ const controller = new ScrollMagic.Controller();
 On déclare une nouvelle constante qui se nommera scene et qui appelera un nouvel objet ScrollMagic.Scene() depuis le CDN qui prendra en paramètres la classe de l'element visé la durée en microsecondes et la vitesse d'animation.
 ```JS
 const scene = new ScrollMagic.Scene({
+    // CLasse de l'élément visé
     triggerElement: '.animation',
+    // Durée de l'animation en ms
     duration: 500,
     triggerHook: 0.4
 })
